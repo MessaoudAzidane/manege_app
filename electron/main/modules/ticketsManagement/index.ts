@@ -86,31 +86,31 @@ export class TicketsManagement {
         // console.log("################ ", app.getAppPath());
 
         let receiptHTML = `
-        <div style="box-sizing: border-box; border: 1px solid black; padding: 1px">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5mm;text-align: center;">
-                <div style="width: 50%;">
-                    <img src="${logoUrl}" alt="Logo" style="max-width: 100%; height: auto;" />
-                    <h1 style="font-size: 54px; margin: 0;text-align: center">${product.name}</h1>
+          <div style="box-sizing: border-box; border: 1px solid black; padding: 1px; width: 80mm; height: 50mm;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
+              <div style="width: 40%;">
+                <img src="${logoUrl}" alt="Logo" style="max-width: 100%; height: auto;" />
+                <h1 style="font-size: 12px; margin: 0; text-align: center;">${product.name}</h1>
+              </div>
+              <div style="width: 60%; text-align: center;">
+                <h1 style="font-size: 10px;">FIFI PARK</h1>
+                <h2 style="font-size: 8px;">ARDIS ALGER</h2>
+                <div style="box-sizing: border-box; border: 1px solid black; padding: 2px;">
+                  <img src="${barcodeUrl}" style="max-width: 100%; height: auto;" />
                 </div>
-                <div style="width: 50%; text-align: right;text-align: center;">
-                    <h1>FIFI PARK</h1>
-                    <h2>ARDIS ALGER</h2>
-                    <div style="box-sizing: border-box; border: 1px solid black; padding: 10px">
-                      <img src="${barcodeUrl}" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <h2>SOYEZ LES BIENVENUS</h2>
-                    <p>${moment().format('YYYY/MM/DD HH:mm')}</p>
-                </div>
+                <h2 style="font-size: 8px;">SOYEZ LES BIENVENUS</h2>
+                <p style="font-size: 8px;">${moment().format('YYYY/MM/DD HH:mm')}</p>
+              </div>
             </div>
             <div style="">
-              <ul>
+              <ul style="font-size: 8px; margin-left: 15px; padding: 0;">
                 <li>01 TICKET ${product.price} DA </li>
                 <li>TICKET NON REMBOURSABLE </li>
                 <li>01 TICKET BON POUR 01 PERSONNE / 01 JEU</li>
                 <li>TICKET VALABLE POUR LA JOURNEE EN COURS</li>
               </ul>
             </div>
-        </div>
+          </div>
         `;
 
         let printData = "";
