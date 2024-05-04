@@ -86,14 +86,14 @@ export class TicketsManagement {
         // console.log("################ ", app.getAppPath());
 
         let receiptHTML = `
-          <div style="box-sizing: border-box; border: 1px solid black; padding: 1px; width: 80mm; height: 50mm;">
+          <div style="box-sizing: border-box; border: 1px solid black; width: 80mm; height: 50mm; margin: 0; padding: 0;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
               <div style="width: 40%;">
                 <img src="${logoUrl}" alt="Logo" style="max-width: 100%; height: auto;" />
                 <h1 style="font-size: 12px; margin: 0; text-align: center;">${product.name}</h1>
               </div>
               <div style="width: 60%; text-align: center;">
-                <h1 style="font-size: 10px;">FIFI PARK</h1>
+                <h1 style="font-size: 10px;">FIFI CANDY</h1>
                 <h2 style="font-size: 8px;">ARDIS ALGER</h2>
                 <div style="box-sizing: border-box; border: 1px solid black; padding: 2px;">
                   <img src="${barcodeUrl}" style="max-width: 100%; height: auto;" />

@@ -52,7 +52,9 @@ const ProductPage = () => {
     // await ipcRenderer.invoke(IpcChannels.session.logout, {id: getAuthToken().id, bilanComptable: 100, bilanReel: 50, ecart: -50});
     // navigate('/');
     setIsPopupVisible(true);
-    await ipcRenderer.invoke(IpcChannels.session.preview, getAuthToken().id);
+    const res = await ipcRenderer.invoke(IpcChannels.session.preview, getAuthToken().id);
+    console.log(res);
+    
   };
 
   const handleClosePopup = () => {
@@ -132,9 +134,9 @@ const ProductPage = () => {
       <Row justify="center" gutter={[16, 16]} className="mt-40 mb-40">
         {products.map((product, index) => (
           <Col key={index} xs={24} sm={12} md={8} lg={6} xl={6}>
-            <Card title={product.price} extra={<Button className="bg-red-800" type="primary" onClick={() => handlePrint(product)} icon={<PrinterOutlined />}>Imprimer</Button>} style={{ backgroundColor: 'white' }}>
+            <Card title={product.price + ' DA'} extra={<Button className="bg-red-800" type="primary" onClick={() => handlePrint(product)} icon={<PrinterOutlined />}>Imprimer</Button>} style={{ backgroundColor: 'white' }}>
               <div>
-                <Title level={4}>Tickets : {product.nb_tickets}</Title>
+                <Title level={4}>Tickets : {product.nb_ticket}</Title>
                 <Text style={{ fontSize: '3rem' }}>{product.name}</Text>
               </div>
             </Card>

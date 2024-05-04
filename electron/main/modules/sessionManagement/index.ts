@@ -2,7 +2,8 @@
 import { IpcMain, IpcMainInvokeEvent } from 'electron';
 import { IpcChannels } from '../utils';
 import { Account, Session } from '../../db/models/init-models';
-import { Sequelize } from 'sequelize';
+import { QueryTypes, Sequelize } from 'sequelize';
+import { sequelize } from '../../db';
 
 export class SessionManagement {
   constructor(private ipcMain: IpcMain){
@@ -88,8 +89,32 @@ export class SessionManagement {
   ){
     const session = await Session.findByPk(sessionId);
     if (!session) {
-      return;
+      return {
+        success:false
+      };
     }
-    
+
+    const query = `select p.price, sale.refunded, p.id, p.nb_ticket
+          from sale
+          join product p on p.id = sale.product_id
+          join session s on s.id = sale.session_id
+          where session_id = :session_id
+    `;
+
+    const results = await sequelize.query(query, {
+      replacements: { session_id: sessionId },
+      type: QueryTypes.SELECT
+    });
+
+    const response: any = {
+      openAt: session.dataValues.opened_at
+    };
+
+    results.forEach(res => {
+
+    });
+
+    return results;
+
   }
 }
